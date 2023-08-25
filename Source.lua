@@ -278,7 +278,7 @@ local function FadeDescription(Infos,type,Out:boolean?)
 			InfoPrompt.Status.Text = Infos.Color.R..Infos.Color.G..Infos.Color.B
 		end
 
-		if not Infos.Info.Image then
+		if not Infos then
 			InfoPrompt.ImageLabel.Visible = false
 			InfoPrompt.Description.Position = InfoPrompt.ImageLabel.Position
 		else
@@ -3417,7 +3417,7 @@ Topbar.Hide.MouseButton1Click:Connect(function()
 end)
 
 UserInputService.InputBegan:Connect(function(input, processed)
-	if (input.KeyCode == Enum.KeyCode.RightShift and not processed) then
+	if (input.KeyCode == Enum.KeyCode.RightShift) then
 		if Debounce then return end
 		if Hidden then
 			Hidden = false
