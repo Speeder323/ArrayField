@@ -278,17 +278,16 @@ local function FadeDescription(Infos,type,Out:boolean?)
 			InfoPrompt.Status.Text = Infos.Color.R..Infos.Color.G..Infos.Color.B
 		end
 
-		if not Infos then
+		if not Infos.Info then
 			InfoPrompt.ImageLabel.Visible = false
 			InfoPrompt.Description.Position = InfoPrompt.ImageLabel.Position
 		else
 			InfoPrompt.ImageLabel.Visible = true
 			InfoPrompt.ImageLabel.Image = 'rbxassetid://'..Infos.Info.Image
 			InfoPrompt.Description.Position = UDim2.new(.5,0,0,160)
+			InfoPrompt.Title.Text = Infos.Info.Title
+			InfoPrompt.Description.Text = Infos.Info.Description
 		end
-
-		InfoPrompt.Title.Text = Infos.Info.Title
-		InfoPrompt.Description.Text = Infos.Info.Description
 	end
 	TweenService:Create(InfoPrompt,TweenInfo.new(.3,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{
 		Size = Size,BackgroundTransparency = Transparency
@@ -3418,7 +3417,9 @@ end)
 
 UserInputService.InputBegan:Connect(function(input, processed)
 	if (input.KeyCode == Enum.KeyCode.RightShift) then
-		if Debounce then return end
+		print("right shift teehee")
+		if Debounce then print("debounce troll") return end
+		print(Hidden)
 		if Hidden then
 			Hidden = false
 			Unhide()
