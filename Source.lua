@@ -3416,7 +3416,7 @@ Topbar.Hide.MouseButton1Click:Connect(function()
 end)
 
 UserInputService.InputBegan:Connect(function(input, processed)
-	if (input.KeyCode == Enum.KeyCode.F3) then
+	if (input.KeyCode == Enum.KeyCode.F3) and not processed then
 		if Debounce then return end
 		if Hidden then
 			Hidden = false
